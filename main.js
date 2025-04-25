@@ -1,6 +1,5 @@
 const animalGuessGame = [
   {
-    id: 1,
     question: "I’m known as the king of the jungle. What am I?",
     hint: "My roar can be heard from miles away.",
     answer: "Lion",
@@ -9,7 +8,6 @@ const animalGuessGame = [
     alt: "A lion lying in the grass in Namibia",
   },
   {
-    id: 2,
     question: "I carry my house on my back and move super slow. What am I?",
     hint: "I leave a slimy trail behind me.",
     answer: "Snail",
@@ -18,7 +16,6 @@ const animalGuessGame = [
     alt: "A snail crawling on a green leaf",
   },
   {
-    id: 3,
     question: "I’m black and white and loved for my bamboo diet. What am I?",
     hint: "I live in the mountains of China.",
     answer: "Panda",
@@ -27,7 +24,6 @@ const animalGuessGame = [
     alt: "A giant panda eating bamboo",
   },
   {
-    id: 4,
     question:
       "I hang upside down, sleep a lot, and move very slowly. What am I?",
     hint: "You’ll mostly find me in the rainforests of Central and South America.",
@@ -37,7 +33,6 @@ const animalGuessGame = [
     alt: "A sloth hanging upside down on a tree branch",
   },
   {
-    id: 5,
     question:
       "I have a long neck and spots, and I eat leaves from tall trees. What am I?",
     hint: "I’m the tallest land animal on Earth.",
@@ -47,7 +42,6 @@ const animalGuessGame = [
     alt: "A giraffe standing in the savannah",
   },
   {
-    id: 6,
     question: "I’m the only mammal that can truly fly. What am I?",
     hint: "I come out mostly at night and may live in caves.",
     answer: "Bat",
@@ -56,7 +50,6 @@ const animalGuessGame = [
     alt: "A fruit bat hanging upside down",
   },
   {
-    id: 7,
     question:
       "You might see me in your yard, hopping around and eating bugs. I ribbit! What am I?",
     hint: "I start life as a tadpole.",
@@ -66,7 +59,6 @@ const animalGuessGame = [
     alt: "A common frog sitting on a rock",
   },
   {
-    id: 8,
     question:
       "I have eight legs and spin webs. Some people fear me! What am I?",
     hint: "I’m not an insect—I belong to the arachnid family.",
@@ -76,7 +68,6 @@ const animalGuessGame = [
     alt: "A close-up of a garden spider on its web",
   },
   {
-    id: 9,
     question: "I can change my color to blend into my surroundings. What am I?",
     hint: "I have eyes that can move in two directions at once.",
     answer: "Chameleon",
@@ -85,7 +76,6 @@ const animalGuessGame = [
     alt: "A colorful Yemen chameleon on a branch",
   },
   {
-    id: 10,
     question:
       "I’m the biggest animal in the ocean and I sing underwater. What am I?",
     hint: "I breathe through a blowhole, not gills.",
