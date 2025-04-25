@@ -110,21 +110,6 @@ function displayAnimalImage(animal) {
   setTimeout(displayRandomAnimal, 2000);
 }
 
-function restartGame() {
-  remainingAnimals = [...animalGuessGame];
-  $container.innerHTML = "";
-  $startBtn.click();
-}
-
-function displayEndMessage() {
-  $container.innerHTML = `
-    <p>Congratulations! You've guessed all the animals!</p>
-    <button class="btn" data-btnType="btn-restart">Restart</button>`;
-  const $restartBtn = document.querySelector(`[data-btnType="btn-restart"]`);
-  $restartBtn.addEventListener("click", restartGame);
-}
-
-
 function handleIncorrectAnswer(animal, hintDisplayed) {
   if (!hintDisplayed) {
     const $card = document.querySelector(".card");
