@@ -5,6 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #5885af;
+    color: #fff;
     font-family: "Roboto", sans-serif;
 }
  
@@ -19,8 +20,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 40rem;
-    
+    min-height: 40rem;   
     border: 3px solid black;
     width: 40rem;
     padding: 1.875rem;
@@ -41,6 +41,10 @@ body {
     transform: translateY(1.25rem);
     background-color: #c3e0e5;
     cursor: pointer;
+}
+
+.btn--restart {
+    margin-top: 1.25rem;
 }
  
 .form {

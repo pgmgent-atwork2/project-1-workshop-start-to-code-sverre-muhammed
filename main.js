@@ -132,8 +132,8 @@ function restartGame() {
 
 function displayEndMessage() {
   $container.innerHTML = `
-    <p>Congratulations! You've guessed all the animals!</p>
-    <button class="btn" data-btnType="btn-restart">Restart</button>`;
+    <h2>Congratulations! You've guessed all the animals!</h2>
+    <button class="btn btn--restart" data-btnType="btn-restart">Restart</button>`;
   const $restartBtn = document.querySelector(`[data-btnType="btn-restart"]`);
   $restartBtn.addEventListener("click", restartGame);
 }
