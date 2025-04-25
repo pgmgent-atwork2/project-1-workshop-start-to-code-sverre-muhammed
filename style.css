@@ -16,7 +16,9 @@ body {
     border-radius: 4.1rem;
     border: 5px solid #41729f;
     transition: .2s ease;
+
 }
+
 
 .btn:hover {
     transform: translateY(20px);
@@ -31,6 +33,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     border: 3px solid black;
     border-radius: 1.875rem;
 }

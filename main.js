@@ -14,7 +14,7 @@ const animalGuessGame = [
     hint: "I leave a slimy trail behind me.",
     answer: "Snail",
     image_url:
-      "https://upload.wikimedia.org/wikipedia/commons/e/e0/Snail_in_Singapore_Botanic_Gardens_-_20110807.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Snail.jpg/500px-Snail.jpg  ",
     alt: "A snail crawling on a green leaf",
   },
   {
@@ -33,7 +33,7 @@ const animalGuessGame = [
     hint: "You’ll mostly find me in the rainforests of Central and South America.",
     answer: "Sloth",
     image_url:
-      "https://upload.wikimedia.org/wikipedia/commons/b/b5/Bradypus.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Bicho-pregui%C3%A7a_3.jpg/500px-Bicho-pregui%C3%A7a_3.jpg",
     alt: "A sloth hanging upside down on a tree branch",
   },
   {
@@ -52,7 +52,7 @@ const animalGuessGame = [
     hint: "I come out mostly at night and may live in caves.",
     answer: "Bat",
     image_url:
-      "https://upload.wikimedia.org/wikipedia/commons/7/77/Lesser_short_nosed_fruit_bat_%28Cynopterus_brachyotis%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/3/3f/Golden_crowned_fruit_bat.jpg",
     alt: "A fruit bat hanging upside down",
   },
   {
@@ -62,7 +62,7 @@ const animalGuessGame = [
     hint: "I start life as a tadpole.",
     answer: "Frog",
     image_url:
-      "https://upload.wikimedia.org/wikipedia/commons/6/62/Common_frog_%28Rana_temporaria%29_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Bombina_bombina_1_%28Marek_Szczepanek%29_tight_crop.jpg/500px-Bombina_bombina_1_%28Marek_Szczepanek%29_tight_crop.jpg",
     alt: "A common frog sitting on a rock",
   },
   {
@@ -72,7 +72,7 @@ const animalGuessGame = [
     hint: "I’m not an insect—I belong to the arachnid family.",
     answer: "Spider",
     image_url:
-      "https://upload.wikimedia.org/wikipedia/commons/8/89/Garden_spider_1.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Plexippus_paykulli_-_50959617953.jpg/500px-Plexippus_paykulli_-_50959617953.jpg",
     alt: "A close-up of a garden spider on its web",
   },
   {
@@ -81,7 +81,7 @@ const animalGuessGame = [
     hint: "I have eyes that can move in two directions at once.",
     answer: "Chameleon",
     image_url:
-      "https://upload.wikimedia.org/wikipedia/commons/e/e3/Yemen_Chameleon.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Chamaeleo_namaquensis_%28Namib-Naukluft%2C_2011%29.jpg/500px-Chamaeleo_namaquensis_%28Namib-Naukluft%2C_2011%29.jpg",
     alt: "A colorful Yemen chameleon on a branch",
   },
   {
@@ -91,7 +91,7 @@ const animalGuessGame = [
     hint: "I breathe through a blowhole, not gills.",
     answer: "Whale",
     image_url:
-      "https://upload.wikimedia.org/wikipedia/commons/4/4e/Humpback_Whale_underwater_shot.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Southern_right_whale.jpg/500px-Southern_right_whale.jpg",
     alt: "A humpback whale swimming underwater",
   },
 ];
@@ -99,23 +99,64 @@ const animalGuessGame = [
 const $startBtn = document.querySelector(`[data-btnType="btn-start"]`);
 const $container = document.querySelector(".container");
 
-$startBtn.addEventListener("click", () => {
+let remainingAnimals = [...animalGuessGame];
+
+function displayRandomAnimal() {
+  if (remainingAnimals.length === 0) {
+    $container.innerHTML = `<p>Congratulations! You've guessed all the animals!</p>
+    <button class="btn" data-btnType="btn-restart">Restart</button>`;
+    const $restartBtn = document.querySelector(`[data-btnType="btn-restart"]`);
+    $restartBtn.addEventListener("click", () => {
+      remainingAnimals = [...animalGuessGame];
+      $container.innerHTML = ""; 
+      $startBtn.click();
+    }
+    );
+    return;
+  }
+
+  const randomIndex = Math.floor(Math.random() * remainingAnimals.length);
+  const randomAnimal = remainingAnimals[randomIndex];
+
   $container.innerHTML = `
     <div class="card">            
-        <img class="card__image" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg" alt="">
         <form class="form" action="">
-            <label class="form__label"> Name this animal:</label>
-            <input class="form__input" type="text">
+            <label class="form__label"> ${randomAnimal.question}</label>
+            <input class="form__input" type="text" placeholder="Your answer">
             <input class="form__submit btn" type="submit" value="Guess">
         </form>
     </div>`;
-    if(incorrectAnswer)
-    addHint()
-});
 
-function addHint () {
-    const $card = document.querySelector(".card")
-    $card.insertAdjacentHTML("beforeend", 
-        "<p>Hint:</p>"
-    )
+  let hintDisplayed = false;
+
+  const $form = document.querySelector(".form");
+  $form.addEventListener("submit", (event) => {
+    event.preventDefault(); 
+
+    const userAnswer = $form.querySelector(".form__input").value.trim();
+    if (userAnswer.toLowerCase() === randomAnimal.answer.toLowerCase()) {
+      alert("Correct!");
+      remainingAnimals.splice(randomIndex, 1);
+
+      $container.innerHTML = `
+        <div class="card">
+          <img class="card__image" src="${randomAnimal.image_url}" alt="${randomAnimal.alt}">
+          <p>Great job! You guessed it right!</p>
+        </div>`;
+
+      setTimeout(displayRandomAnimal, 2000);
+    } else {
+      if (!hintDisplayed) {
+        const $card = document.querySelector(".card");
+        $card.insertAdjacentHTML(
+          "beforeend",
+          `<p class="hint">Hint: ${randomAnimal.hint}</p>`
+        );
+        hintDisplayed = true;
+      }
+      alert("Incorrect! Try again.");
+    }
+  });
 }
+
+$startBtn.addEventListener("click", displayRandomAnimal);
