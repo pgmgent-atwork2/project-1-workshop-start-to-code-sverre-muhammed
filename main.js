@@ -91,60 +91,77 @@ const $container = document.querySelector(".container");
 
 let remainingAnimals = [...animalGuessGame];
 
+function restartGame() {
+  remainingAnimals = [...animalGuessGame];
+  $container.innerHTML = "";
+  $startBtn.click();
+}
+
+function displayEndMessage() {
+  $container.innerHTML = `
+    <p>Congratulations! You've guessed all the animals!</p>
+    <button class="btn" data-btnType="btn-restart">Restart</button>`;
+  const $restartBtn = document.querySelector(`[data-btnType="btn-restart"]`);
+  $restartBtn.addEventListener("click", restartGame);
+}
+
+function displayQuestion(animal) {
+  $container.innerHTML = `
+    <div class="card">            
+        <form class="form" action="">
+            <label class="form__label"> ${animal.question}</label>
+            <input class="form__input" type="text" placeholder="Your answer">
+            <input class="form__submit btn" type="submit" value="Guess">
+        </form>
+    </div>`;
+}
+
+function displayAnimalImage(animal) {
+  $container.innerHTML = `
+    <div class="card">
+      <img class="card__image" src="${animal.image_url}" alt="${animal.alt}">
+      <p>Great job! You guessed it right!</p>
+    </div>`;
+  setTimeout(displayRandomAnimal, 2000);
+}
+
+function handleIncorrectAnswer(animal, hintDisplayed) {
+  if (!hintDisplayed) {
+    const $card = document.querySelector(".card");
+    $card.insertAdjacentHTML(
+      "beforeend",
+      `<p class="hint">Hint: ${animal.hint}</p>`
+    );
+    return true;
+  }
+  alert("Incorrect! Try again.");
+  return hintDisplayed;
+}
+
 function displayRandomAnimal() {
   if (remainingAnimals.length === 0) {
-    $container.innerHTML = `<p>Congratulations! You've guessed all the animals!</p>
-    <button class="btn" data-btnType="btn-restart">Restart</button>`;
-    const $restartBtn = document.querySelector(`[data-btnType="btn-restart"]`);
-    $restartBtn.addEventListener("click", () => {
-      remainingAnimals = [...animalGuessGame];
-      $container.innerHTML = ""; 
-      $startBtn.click();
-    }
-    );
+    displayEndMessage();
     return;
   }
 
   const randomIndex = Math.floor(Math.random() * remainingAnimals.length);
   const randomAnimal = remainingAnimals[randomIndex];
 
-  $container.innerHTML = `
-    <div class="card">            
-        <form class="form" action="">
-            <label class="form__label"> ${randomAnimal.question}</label>
-            <input class="form__input" type="text" placeholder="Your answer">
-            <input class="form__submit btn" type="submit" value="Guess">
-        </form>
-    </div>`;
+  displayQuestion(randomAnimal);
 
   let hintDisplayed = false;
 
   const $form = document.querySelector(".form");
   $form.addEventListener("submit", (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     const userAnswer = $form.querySelector(".form__input").value.trim();
     if (userAnswer.toLowerCase() === randomAnimal.answer.toLowerCase()) {
       alert("Correct!");
       remainingAnimals.splice(randomIndex, 1);
-
-      $container.innerHTML = `
-        <div class="card">
-          <img class="card__image" src="${randomAnimal.image_url}" alt="${randomAnimal.alt}">
-          <p>Great job! You guessed it right!</p>
-        </div>`;
-
-      setTimeout(displayRandomAnimal, 2000);
+      displayAnimalImage(randomAnimal);
     } else {
-      if (!hintDisplayed) {
-        const $card = document.querySelector(".card");
-        $card.insertAdjacentHTML(
-          "beforeend",
-          `<p class="hint">Hint: ${randomAnimal.hint}</p>`
-        );
-        hintDisplayed = true;
-      }
-      alert("Incorrect! Try again.");
+      hintDisplayed = handleIncorrectAnswer(randomAnimal, hintDisplayed);
     }
   });
 }
