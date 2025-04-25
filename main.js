@@ -91,20 +91,6 @@ const $container = document.querySelector(".container");
 
 let remainingAnimals = [...animalGuessGame];
 
-function restartGame() {
-  remainingAnimals = [...animalGuessGame];
-  $container.innerHTML = "";
-  $startBtn.click();
-}
-
-function displayEndMessage() {
-  $container.innerHTML = `
-    <p>Congratulations! You've guessed all the animals!</p>
-    <button class="btn" data-btnType="btn-restart">Restart</button>`;
-  const $restartBtn = document.querySelector(`[data-btnType="btn-restart"]`);
-  $restartBtn.addEventListener("click", restartGame);
-}
-
 function displayQuestion(animal) {
   $container.innerHTML = `
     <div class="card">            
@@ -123,6 +109,20 @@ function displayAnimalImage(animal) {
       <p>Great job! You guessed it right!</p>
     </div>`;
   setTimeout(displayRandomAnimal, 2000);
+}
+
+function restartGame() {
+  remainingAnimals = [...animalGuessGame];
+  $container.innerHTML = "";
+  $startBtn.click();
+}
+
+function displayEndMessage() {
+  $container.innerHTML = `
+      <p>Congratulations! You've guessed all the animals!</p>
+      <button class="btn" data-btnType="btn-restart">Restart</button>`;
+  const $restartBtn = document.querySelector(`[data-btnType="btn-restart"]`);
+  $restartBtn.addEventListener("click", restartGame);
 }
 
 function handleIncorrectAnswer(animal, hintDisplayed) {
