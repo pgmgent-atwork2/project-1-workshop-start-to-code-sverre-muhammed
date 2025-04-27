@@ -31,48 +31,174 @@
             No prior coding experience is needed — we'll explain what each part of the code does along the way.
             Get ready, have fun, and let's start coding!
         </p>
-        <details class="details" open>
-            <summary class="summary">Setup and styling</summary>
-            <p>In this section, you'll set up everything you need to get started and learn how to style the game with
-                CSS. </p>
+
+        <details class="details">
+            <summary class="summary">Setup</summary>
+            <p>In this section, you'll set up everything you need to get started.</p>
             <img class="details__image" src="screenshots/quiz.webp" alt="Image of quiz">
 
-            <ul>
+            <ol>
                 <li>
-                    <h2>Setup</h2>
-                    <ol>
-                        <li>
-                            <p>Download <a class="details__highlight" href="https://code.visualstudio.com/download"
-                                    target="_blank"> Visual Studio Code
-                                </a> so we can edit the
-                                code.
-                                When the download is complete, open Visual Studio Code and install the <span
-                                    class="details__highlight">Live server</span> extension. This is used to view the
-                                project in
-                                the browser. For the rest of this tutorial, I will refer to Visual Studio Code as VSC.
-                            </p>
-                            <img class="details__image" src="screenshots/extension.webp"
-                                alt="Picture of VSC extensions">
-                        </li>
-                        <li>Download the
-                            <a class="details__highlight" href="./download/animal-quiz.zip">starter code</a> and
-                            unzip the zip file.
-                            <img class="details__image" src="screenshots/starter-code.webp"
-                                alt="Image of unzippin a file">
-                        </li>
-                        <li>
-                            Open the folder in VSC by either dragging it into the window or selecting it manually.
-                            <img class="details__image" src="screenshots/open-folder.webp"
-                                alt="Image showing how to open a folder in VSC">
-                        </li>
-                    </ol>
+                    <p>Download <a class="details__highlight" href="https://code.visualstudio.com/download"
+                            target="_blank"> Visual Studio Code
+                        </a> so we can edit the
+                        code.
+                        When the download is complete, open Visual Studio Code and install the <span
+                            class="details__highlight">Live server</span> extension. This is used to view the
+                        project in
+                        the browser. For the rest of this tutorial, I will refer to Visual Studio Code as VSC.
+                    </p>
+                    <img class="details__image" src="screenshots/extension.webp" alt="Picture of VSC extensions">
                 </li>
-
                 <li>
-                    <h2>Styling</h2>
-                    <ol></ol>
+                    Download the <a class="details__highlight" href="./download/animal-quiz.zip">starter code</a>
+                    (animal-quiz.zip) to begin building your quiz game.
                 </li>
+                <li>
+                    Open the folder in VSC by either dragging it into the window or selecting it manually.
+                    <img class="details__image" src="screenshots/open-folder.webp"
+                        alt="Image showing how to open a folder in VSC">
+                </li>
+            </ol>
+        </details>
 
+        <details class="details">
+            <summary class="summary">Styling</summary>
+            <p>In this section we will add styling to the game. When you open the game with live server your page should
+                look like this: </p>
+            <img class="details__image" src="screenshots/quiz-standard.webp" alt="Image of basic layout">
+
+            <ol>
+                <li>
+                    <p>
+                        We'll start by updating the heading. When you open index.html, you'll see a basic HTML
+                        structure. A <span class="details__highlight">tag</span> is the syntax we use to define elements
+                        on a webpage. The
+                        <span class="details__highlight">&lt;h1&gt</span> tag is used to define a main heading. You’ll also notice a <span
+                            class="details__highlight">class</span>
+                        attribute
+                        called title. We use this class to target specific elements when styling with CSS.
+                    </p>
+
+                    <p>
+                        Now, open style.css. You’ll notice I added a class called <span
+                            class="details__highlight">.title</span>. Inside the curly braces <span
+                            class="details__highlight">{ }</span>,
+                        you can write code to style the element. Copy and paste the following code into the { } and then
+                        check the title again.
+                    </p>
+                    <p class="codepen" data-height="300" data-default-tab="css" data-slug-hash="azzyjWZ"
+                        data-pen-title="Untitled" data-user="Sverre-Baeke"
+                        style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                        <span>See the Pen <a href="https://codepen.io/Sverre-Baeke/pen/azzyjWZ">
+                                Untitled</a> by Sverre Baeke (<a
+                                href="https://codepen.io/Sverre-Baeke">@Sverre-Baeke</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                    </p>
+                    <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                    <p>
+                        You’ll see that the title is now larger. This was achieved by changing the <span
+                            class="details__highlight">font-size </span> property.
+                        The <span class="details__highlight">color</span> property is used to modify the text color.
+                        Feel free to adjust these properties to
+                        suit your preferences!
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Let's now add some styling to the <span class="details__highlight">&lt;main&gt</span> tag with the
+                        class
+                        <span class="details__highlight">.container</span>.
+                        Copy and paste the following code below the existing code inside the { } of the container class.
+                    </p>
+                    <p class="codepen" data-height="300" data-default-tab="css" data-slug-hash="bNNrjYO"
+                        data-pen-title="container" data-user="Sverre-Baeke"
+                        style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                        <span>See the Pen <a href="https://codepen.io/Sverre-Baeke/pen/bNNrjYO">
+                                container</a> by Sverre Baeke (<a
+                                href="https://codepen.io/Sverre-Baeke">@Sverre-Baeke</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                    </p>
+                    <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+                    <p>
+                        The <span class="details__highlight">border</span> property defines the style and thickness of
+                        the element's border, while the <span class="details__highlight">width</span>
+                        controls how wide the element is. <span class="details__highlight">Padding</span> creates space
+                        inside the element around its content,
+                        and <span class="details__highlight">border-radius</span> rounds the corners for a smoother
+                        look. <br>Finally, the <span class="details__highlight">background-color</span> sets the
+                        element's background color.
+                    </p>
+
+                    <p>
+                        When using color values, hex notation (like #274472) represents colors with a 6-digit code,
+                        where the first two digits represent red, the next two represent green, and the last two
+                        represent blue. Plain color names (like white in the title) are predefined words recognized by
+                        browsers
+                        to represent colors.
+                    </p>
+
+                    <img class="details__image" src="./screenshots/quiz-step-2.webp" alt="Quiz after adding some styling">
+                </li>
+                <li>
+                    <p>
+                        The button looks a bit dull, so let's add some styling to make it stand out! You’ll notice that
+                        most of the properties we’re using have already been introduced. One new property we’ll add is
+                        <span class="details__highlight">font-weight</span>, which controls how bold the text appears.
+                        The higher the value, the bolder the text
+                        becomes.
+                    </p>
+                    <p>
+                        Additionally, we'll use the <span class="details__highlight">transition</span>
+                        property, which defines how long and smooth the
+                        change between two states should be. The latter will be used in the next step. Copy and paste
+                        the following code below the existing code inside the { } of the <span
+                            class="details__highlight">btn</span> class.
+                    </p>
+                    <p class="codepen" data-height="300" data-default-tab="css" data-slug-hash="NPPvBmZ"
+                        data-pen-title="btn" data-user="Sverre-Baeke"
+                        style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                        <span>See the Pen <a href="https://codepen.io/Sverre-Baeke/pen/NPPvBmZ">
+                                btn</a> by Sverre Baeke (<a href="https://codepen.io/Sverre-Baeke">@Sverre-Baeke</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                    </p>
+                    <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                </li>
+                <li>
+                    <p>
+                        Finally, we'll add a hover effect to the button. This means that when the user hovers their
+                        cursor over the button, a set of changes will be applied to the element.
+                        Copy and paste
+                        the following code below the existing code inside the { } of the <span
+                            class="details__highlight">btn:hover</span> class.
+                    </p>
+                    <p class="codepen" data-height="300" data-default-tab="css" data-slug-hash="Eaavpqm"
+                        data-pen-title="btn hover" data-user="Sverre-Baeke"
+                        style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                        <span>See the Pen <a href="https://codepen.io/Sverre-Baeke/pen/Eaavpqm">
+                                btn hover</a> by Sverre Baeke (<a
+                                href="https://codepen.io/Sverre-Baeke">@Sverre-Baeke</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                    </p>
+                    <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+                    <p>
+                        The <span class="details__highlight">transform: translateY()</span> property moves an element up or down the page, with the value inside
+                        determining how far it moves. Positive values move the element downward, while negative values
+                        move it upward.
+                    </p>
+                    <p>
+                        The <span class="details__highlight">cursor: pointer</span> property changes the cursor to a hand icon when hovering over an element,
+                        such as a button or link, signaling that the element is clickable..
+                    </p>
+                </li>
+            </ol>
+
+            <p>After all this styling the game should look like this:</p>
+            <img class="details__image" src="./screenshots/quiz-styled.webp" alt="Example of finished quiz styling">
+
+            <p>Next, let's add some interactivity with JavaScript to make the quiz functional.</p>
 
         </details>
 
@@ -80,12 +206,6 @@
             <summary class="summary">Adding interactivity</summary>
             <ul>
                 <li>
-                    <p>First of all download <a href="https://code.visualstudio.com/download">Visual Studio Code </a>
-                        and download the necessary files from
-                        <a href="./download/animal-quiz.zip">here.</a>
-                    </p>
-                    <p>Then copy the codes from below and paste it in relevant places in your <strong>main.js</strong>
-                        file</p>
                     <ul>
                         <li>
                             <h2>1.1 Display Question</h2>

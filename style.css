@@ -33,7 +33,7 @@ h2 {
 }
 
 .title {
-  color: #fff;
+  color: white;
   font-size: 4rem;
 }
 
@@ -179,6 +179,10 @@ h2 {
     }
 
   }
+
+  & p {
+    margin: 1rem 0;
+  }
 }
 
 .details:not([open]):hover{
@@ -193,3 +197,4 @@ h2 {
     font-weight: bold;
     font-size: 1.5rem;
 }
+
