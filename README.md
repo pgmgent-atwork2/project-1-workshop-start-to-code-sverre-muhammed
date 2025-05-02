@@ -2,6 +2,8 @@
 
 Figjam URL : https://www.figma.com/board/FSmbcO4uk2hir5UJ5DPEdH/Atwork-project?node-id=8-27&t=yIaYMekM9pZbzwP3-1
 
+https://pgmgent-atwork2.github.io/project-1-workshop-start-to-code-sverre-muhammed/
+
 # Animal Guessing Game 🐾
 
 This project is an **animal guessing game** designed to help users have fun while learning about animals. It is built using HTML, CSS, and JavaScript.
